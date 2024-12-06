@@ -265,3 +265,135 @@ $ten_mang = array(); // khởi tạo một mảng gán vào biến $ten_mang
 ```
 - Giả sử tôi có 2 sinh viên là Nguyễn Văn A và Nguyễn Văn B, giờ tôi sẽ khởi tạo một mảng $sinhvien để lưu 2 sinh viên này lại.
 - **Note** : Các bạn dùng hàm var_dump($mang); để in ra các phần tử của mạng để test trong quá trình học nhé. Hàm này có thể sử dụng được tất cả các kiểu dữ liệu trong php.
+- **Cách 1** :
+```php
+<?php
+$sinhvien = array('Nguyễn Văn A', 'Nguyễn Văn B');
+print_r($sinhvien);
+?>
+```
+- **Cách 2**:
+```php
+<?php
+$sinhvien = array(
+0 => 'Nguyễn Văn A',
+1 => 'Nguyễn Văn B'
+);
+print_r($sinhvien);
+?>
+```
+- **Cách 3**:
+```php
+<?php
+$sinhvien = array();
+$sinhvien[0] = 'Nguyễn Văn A';
+$sinhvien[1] = 'Nguyễn Văn B';
+print_r($sinhvien);
+?>
+```
+- **Cách 4**:
+```php
+<?php
+$sinhvien = array();
+$sinhvien[] = 'Nguyễn văn A';
+$sinhvien[] = 'Nguyễn Văn B';
+print_r($sinhvien);
+?>
+```
+#### 2.5.2 Mảng chỉ có mục 
+- Là mảng có các phần tử được định danh một chỉ mục (kiểu số) và bắt đầu bằng số 0 và phần tử cuối cùng có chỉ mục là `(n-1)`, trong đó n là tổng số phần tử của mảng. Điều này có nghĩa nếu mảng của bạn có 10 phần từ thì lần lượt các vị trí phần tử trong mảng là: `[0] – [1] – [2] – [3] – [4] – [5] – [6] – [7] – [8] – [9]`
+- **Quay lại 4 cách giải của ví dụ trên** :
+ - **Với cách 1**: Bạn khởi tạo một mảng và gán trực tiếp 2 phần từ vào, vì mảng bắt đầu từ 0 nên nó tự hiểu phần tử đầu tiên có chỉ mục =0, và phần tử thứ 2 = 1.
+  -  **Với cách 2**: Bạn khởi taọ một mảng và gán trực tiếp 2 phần tử vào, nhưng lúc gán bạn có ghi rõ các chỉ mục cho từng phần tử.
+  -  **Với cách 3**: Ban khởi tạo một mảng rỗng. sau đó bạn dùng 2 lệnh để gán 2 phần tử vào, mỗi lệnh gán bạn có chỉ rõ chỉ mục.
+  -  **Với cách 4**: Bạn khởi tạo một mảng rỗng, sau đó bạn dùng 2 lệnh gán 2 phần tử vào nhưng bạn lại không chỉ rõ chỉ mục, lúc này PHP sẽ kiểm tra thấy mảng đang rỗng nên phần tử đầu tiên nó sẽ mặc định gán chỉ mục = 0, và phần tử tiếp theo sẽ bằng phần tử trước nó + 1 tức là sẽ = 1.
+- Để truy xuất các phần tử của mảng chỉ mục ta dùng cú pháp sau:
+- `$tenmang[$index]`; trong đó `$index` là chỉ mục bạn muốn lấy.
+#### 2.5.3 Mảng kết hợp 
+- Là Mảng có các phần tử được định danh bằng một cái tên và đương nhiên vị trí các phần tử sẽ không có thứ tự.
+- **Ví dụ 15** :
+```php
+<?php
+$sinhvien = array(
+'sinhvien_a' => 'Nguyễn Văn A',
+'sinhvien_b' => 'Nguyễn Văn B'
+);
+print_r($sinhvien);
+?>
+```
+```php
+<?php
+$sinhvien = array();
+$sinhvien['sinhvien_a'] = 'Nguyễn Văn A';
+$sinhvien['sinhvien_b'] = 'Nguyễn Văn B';
+print_r($sinhvien);
+?>
+```
+- **Xét ví dụ sau** :
+```php
+<?php
+$sinhvien = array();
+$sinhvien['sinhvien_a'] = 'Nguyễn Văn A';
+$sinhvien['sinhvien_b'] = 'Nguyễn Văn B';
+print_r($sinhvien);
+?>
+```
+- Việc truy xuất các phần tử trong mảng kết hợp cũng tương tự như mảng chỉ mục ta dùng cú pháp sau: `$tenmang[$name]`, trong đó `$name` là tên của phần tử bạn muốn lấy ra.
+- **Ví dụ** :
+```php
+<?php
+$sinhvien = array();
+$sinhvien['sinhvien_a'] = 'Nguyễn Văn A';
+$sinhvien['sinhvien_b'] = 'Nguyễn Văn B';
+echo $sinhvien['sinhvien_a']; // xuất ra màn hình sinh viên Nguyễn Văn A
+echo $sinhvien['sinhvien_b']; // xuất ra màn hình sinh viên Nguyễn Văn B
+?>
+```
+#### 2.5.4 Mảng một chiều 
+- Tất cả những ví dụ ở trên gọi là mảng 1 chiều (gồm mảng 1 chiều chi mục, mảng một chiều kết hợp)
+
+<img width="677" alt="Ảnh màn hình 2024-12-06 lúc 10 18 10" src="https://github.com/user-attachments/assets/2efd222f-2049-4778-a899-a0492313107c">
+
+#### 2.5.5 Mảng nhiều chiều 
+- Là mảng có nhiều chỉ mục cho từng phần tử, ví dụ mảng 2 chiều thì mỗi phần tử có 2 chỉ muc, 3 chiều thì mỗi phần tử có 3 chỉ mục, …
+- Mảng nhiều chiều thực chất cũng chỉ là mảng 1 chiều nhưng được thể hiện dưới dạng nhiều chiều.
+- Xem hình minh họa mảng 2 chiều sau được biểu hiện bằng số dòng và số cột (nghĩa là 2 chiều giống trong hình học không gian 2 chiều), mỗi phần tử sẽ được định vị trí ở điểm giao nhau của chỉ số cột và dòng hiện tại.
+
+<img width="628" alt="Ảnh màn hình 2024-12-06 lúc 10 19 39" src="https://github.com/user-attachments/assets/ec99b35f-ca8b-47b4-9f7d-4a7b863ca627">
+
+- Ví dụ về mảng 2 chiều :
+```php
+<?php
+$a = array();
+$a[0][1] = 123;
+$a[0][2] = 321;
+?>
+```
+- Ví dụ xuất phần tử mảng 2 chiều :
+```php
+<?php
+$a = array();
+$a[0][1] = 123;
+$a[0][2] = 321;
+echo $a[0][1]; // in ra giá trị 123
+echo $a[0][2]; // in ra giá trị 321
+?>
+```
+#### 2.5.6 Kiểm tra một biến kiểu mảng 
+- Để kiểm tra một biến có phải kiểu mảng (array) không ta dùng hàm `is_array($bien)`, hàm này trả về TRUE nếu đúng và FALSE nếu không đúng.
+### 2.6 Kiểu giá trị NULL
+- Đây là kiểu đặc biệt trong PHP và cũng như các ngôn ngữ lập trình khác, nó mang giá trị rỗng.
+- Lúc bạn khởi tạo một biến và bạn gán = NULL thì sẽ hệ thông sẽ không tốn bộ nhớ để lưu trữ, nên việc sử dụng nó rất có lợi.
+- Kiểu NULL khi ép kiểu sang kiểu INT thì bằng 0, khi ép kiểu sang kiểu chuỗi thì = rỗng, và khi ép sang kiểu boolean thì mang giá trị FALSE.
+- **Ví dụ**:
+```php
+<?php 
+$a = null; // Khởi tạo biến $a và gán giá trị null
+$b = (int)$a; // Biến $b có giá trị là ( 0 )
+$c = (string)$a; // Biến $c có giá trị rỗng ( '' )
+$d = (bool)$a; // Biến $d có giá trị FALSE
+?>
+```
+#### 2.6.1 Kiểm tra một biến có giá trị null
+- Để kiểm tra một biến có giá trị null hay không ta dùng hàm `is_null($bien)`. Biến này trả về TRUE nếu đúng và FALSE nếu không đúng.
+### 2.7 Kiểu Object(đối tượng )
